@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap");
 
 :root {
-  --mainTextColor-light: #bebaba;
-  --mainTextColor-primary: #b29155;
-  --mainTextColor-secondary: #da9a24;
-  --mainBgColor-dark: #131415;
-  --mainTextColor-White: #fff;
+  /* Updated Color Scheme */
+  --mainTextColor-light: #e0e6ed; /* Lighter Grayish Blue for better contrast */
+  --mainTextColor-primary: #ffffff; /* White for strong contrast */
+  --mainTextColor-secondary: #5dade2; /* Sky Blue */
+  --mainBgColor-dark: #1a1a2e; /* Dark Navy */
+  --mainTextColor-White: #ffffff; /* White */
 
   --mainBgColor: var(--mainBgColor-dark);
 
@@ -13,13 +14,16 @@
   --mainTextColorLight: var(--mainTextColor-light);
   --mainTextColorWhite: var(--mainTextColor-White);
   --mainTextColorSecondary: var(--mainTextColor-secondary);
+
+  --mainLinkColor: #5dade2; /* Sky Blue for Links */
+  --secondaryTextColor: #e0e6ed; /* Lighter Grayish Blue for better contrast */
 }
 
 * {
   font-family: "Inter", sans-serif;
   line-height: 1.5em;
   box-sizing: border-box;
-  color: var(--mainTextColor);
+  color: var(--mainTextColor-light);
 }
 
 body {
@@ -37,6 +41,12 @@ a {
   text-decoration: none;
   color: var(--mainLinkColor);
   font-weight: 500;
+  transition: color 0.3s, transform 0.3s;
+}
+
+a:hover {
+  color: var(--mainTextColor-secondary);
+  transform: translateY(-2px);
 }
 
 li {
@@ -63,13 +73,13 @@ li {
 #bio,
 a {
   font-weight: 300;
-  color: var(--mainTextColorLight);
+  color: var(--mainTextColor-light);
 }
 
 #user-name {
   font-size: 48px;
   line-height: 1em;
-  color: var(--mainTextColorPrimary);
+  color: var(--mainTextColor-primary);
 }
 
 #profile-pic {
@@ -77,12 +87,23 @@ a {
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#profile-pic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(93, 173, 226, 0.5);
 }
 
 #email {
-  color: var(--mainTextColorWhite);
+  color: var(--mainTextColor-White);
   padding-left: 8px;
   padding-right: 64px;
+  transition: color 0.3s;
+}
+
+#email:hover {
+  color: var(--mainTextColor-secondary);
 }
 
 #socials--list {
@@ -94,20 +115,20 @@ a {
 
 #socials--list a {
   font-weight: 300;
-  color: var(--mainTextColorPrimary);
+  color: var(--mainLinkColor);
   font-size: 0.9em;
-  transition: 0.3s;
+  transition: color 0.3s, transform 0.3s;
 }
 
 #socials--list a:hover {
-  font-weight: 100;
-  color: var(--mainTextColorSecondary);
-  font-size: 0.9em;
+  color: var(--mainTextColor-secondary);
+  font-weight: 400;
+  transform: translateY(-2px);
 }
 
 #qualifications--list {
   list-style: none;
-  color: var(--mainTextColorWhite);
+  color: var(--mainTextColor-White);
 }
 
 #wrapper--techstack__items {
@@ -118,10 +139,17 @@ a {
 }
 
 .card--techstack {
-  border: 1px solid var(--mainTextColorSecondary);
+  border: 1px solid var(--mainTextColor-secondary);
   border-radius: 5px;
   padding: 0.5em 1em;
   align-items: center;
+  background-color: rgba(93, 173, 226, 0.1);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.card--techstack:hover {
+  background-color: rgba(93, 173, 226, 0.2);
+  transform: translateY(-2px);
 }
 
 .card--techstack--component {
@@ -131,37 +159,45 @@ a {
 .card--project {
   padding-top: 1em;
   padding-bottom: 1em;
-  border-top: 1px solid var(--mainTextColorWhite);
+  border-top: 1px solid var(--mainTextColor-White);
+  transition: background-color 0.3s;
+}
+
+.card--project:hover {
+  background-color: rgba(44, 62, 80, 0.1);
 }
 
 .card--project a {
-  color: var(--mainTextColorLight);
-
-  transition: 0.3s;
+  color: var(--mainTextColor-light);
+  transition: color 0.3s, font-weight 0.3s;
 }
 
 .card--project a:hover {
-  color: var(--mainTextColorSecondary);
+  color: var(--mainTextColor-secondary);
   font-weight: bold;
 }
 
 .card--work-history {
-  border-left: 1px solid var(--mainBorderColor);
+  border-left: 1px solid var(--secondaryTextColor);
   margin-top: 3em;
   margin-bottom: 3em;
   padding-left: 2em;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.card--work-history:hover {
+  background-color: rgba(44, 62, 80, 0.1);
+  transform: translateY(-2px);
 }
 
 .line-break {
-  background-color: var(--mainBorderColor);
+  background-color: var(--secondaryTextColor);
   height: 1px;
 }
 
 .email-container {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
-  line-break: 12;
   flex-direction: row;
 }
 
